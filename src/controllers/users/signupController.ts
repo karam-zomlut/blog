@@ -6,7 +6,13 @@ import {
   checkEmailQuery,
   checkUsernameQuery,
 } from '../../database';
-import { signupSchema, signToken, CustomError } from '../../utils';
+import {
+  signupSchema,
+  signToken,
+  CustomError,
+  sendEmail,
+  generateWelcomingEmail,
+} from '../../utils';
 
 config();
 
@@ -60,6 +66,12 @@ const signupController = async (
         email: user[0].email,
       },
       { expiresIn: '1d' }
+    );
+
+    await sendEmail(
+      email,
+      'Welcome to Karam Thoughts',
+      generateWelcomingEmail(username)
     );
 
     res
