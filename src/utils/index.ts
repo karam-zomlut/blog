@@ -2,7 +2,7 @@ import { signinSchema, signupSchema, postSchema } from './validation';
 import { signToken, verifyToken } from './jwt';
 import CustomError from './customError';
 import generateSlug from './generateSlug';
-
+import { sendEmail, generateWelcomingEmail } from './email';
 export {
   signinSchema,
   signupSchema,
@@ -11,4 +11,6 @@ export {
   CustomError,
   postSchema,
   generateSlug,
+  generateWelcomingEmail,
+  sendEmail,
 };
