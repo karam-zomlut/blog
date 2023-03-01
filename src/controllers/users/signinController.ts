@@ -33,6 +33,7 @@ const signinController = async (
         id: rows[0].id,
         username: rows[0].username,
         email: rows[0].email,
+        verified: rows[0].verified,
       },
       {
         expiresIn: '1d',

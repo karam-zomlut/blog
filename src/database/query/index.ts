@@ -1,4 +1,9 @@
-import { signupQuery, checkEmailQuery, checkUsernameQuery } from './users';
+import {
+  signupQuery,
+  checkEmailQuery,
+  checkUsernameQuery,
+  verifyAccountQuery,
+} from './users';
 import {
   createPostQuery,
   checkPostTitleQuery,
@@ -20,4 +25,5 @@ export {
   deletePostQuery,
   getPostByIdQuery,
   editPostQuery,
+  verifyAccountQuery,
 };

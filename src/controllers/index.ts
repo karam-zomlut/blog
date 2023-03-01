@@ -1,4 +1,10 @@
-import { signupController, signinController, logoutController } from './users';
+import {
+  signupController,
+  signinController,
+  logoutController,
+  verifyAccountController,
+  requestVerifyAccountController,
+} from './users';
 import {
   createPostController,
   getAllPostsController,
@@ -18,4 +24,6 @@ export {
   deletePostController,
   getPostController,
   editPostController,
+  verifyAccountController,
+  requestVerifyAccountController,
 };

@@ -9,6 +9,7 @@ import {
   deletePostQuery,
   getPostByIdQuery,
   editPostQuery,
+  verifyAccountQuery,
 } from './query';
 
 export {
@@ -22,4 +23,5 @@ export {
   deletePostQuery,
   getPostByIdQuery,
   editPostQuery,
+  verifyAccountQuery,
 };

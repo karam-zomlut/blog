@@ -23,10 +23,15 @@ type RequestWithBody = Request & {
     password: string;
     confirmPassword: string;
   };
+  user: {
+    id: number;
+    username: string;
+    email: string;
+  }
 };
 
 const signupController = async (
-  req: RequestWithBody,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
@@ -68,6 +73,7 @@ const signupController = async (
       { expiresIn: '1d' }
     );
 
+    // add user to req object
     await sendEmail(
       email,
       'Welcome to Karam Thoughts',
