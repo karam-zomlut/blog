@@ -10,7 +10,7 @@ const sendEmail = async (to: string, subject: string, message: string) => {
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
-    requireTLS: true,
+    
     auth: {
       user: `${EMAIL}`,
       pass: `${EMAIL_PASSWORD}`,

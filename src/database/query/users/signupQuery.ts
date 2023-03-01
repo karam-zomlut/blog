@@ -8,7 +8,7 @@ type User = {
 
 const signupQuery = ({ username, email, password }: User) => {
   const sql = {
-    text: 'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email',
+    text: 'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING id, username, email, verified',
     values: [username, email, password],
   };
 
