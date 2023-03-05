@@ -1,4 +1,4 @@
-import { signinSchema, signupSchema } from './users';
+import { signinSchema, signupSchema, resetPasswordSchema } from './users';
 import { postSchema } from './posts';
 
-export { signinSchema, signupSchema, postSchema };
+export { signinSchema, signupSchema, postSchema, resetPasswordSchema };

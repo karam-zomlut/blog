@@ -11,8 +11,6 @@ const app: Application = express();
 const PORT: Number = Number(process.env.PORT) || 3000;
 app.set('port', PORT);
 
-console.log(process.env.PORT);
-
 app.disable('x-powered-by');
 
 app.use([express.json(), express.urlencoded({ extended: false }), cookieParser()]);

@@ -10,6 +10,7 @@ import {
   getPostByIdQuery,
   editPostQuery,
   verifyAccountQuery,
+  editPasswordQuery,
 } from './query';
 
 export {
@@ -24,4 +25,5 @@ export {
   getPostByIdQuery,
   editPostQuery,
   verifyAccountQuery,
+  editPasswordQuery,
 };

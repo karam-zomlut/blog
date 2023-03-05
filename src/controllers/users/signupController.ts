@@ -23,15 +23,10 @@ type RequestWithBody = Request & {
     password: string;
     confirmPassword: string;
   };
-  user: {
-    id: number;
-    username: string;
-    email: string;
-  }
 };
 
 const signupController = async (
-  req: any,
+  req: RequestWithBody,
   res: Response,
   next: NextFunction
 ) => {

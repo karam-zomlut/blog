@@ -1,8 +1,18 @@
-import { signinSchema, signupSchema, postSchema } from './validation';
+import {
+  signinSchema,
+  signupSchema,
+  postSchema,
+  resetPasswordSchema,
+} from './validation';
 import { signToken, verifyToken } from './jwt';
 import CustomError from './customError';
 import generateSlug from './generateSlug';
-import { sendEmail, generateWelcomingEmail, verifyAccountEmail } from './email';
+import {
+  sendEmail,
+  generateWelcomingEmail,
+  verifyAccountEmail,
+  generatePasswordResetEmail,
+} from './email';
 export {
   signinSchema,
   signupSchema,
@@ -14,4 +24,6 @@ export {
   generateWelcomingEmail,
   sendEmail,
   verifyAccountEmail,
+  generatePasswordResetEmail,
+  resetPasswordSchema,
 };
