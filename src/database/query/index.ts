@@ -3,6 +3,7 @@ import {
   checkEmailQuery,
   checkUsernameQuery,
   verifyAccountQuery,
+  editPasswordQuery,
 } from './users';
 import {
   createPostQuery,
@@ -26,4 +27,5 @@ export {
   getPostByIdQuery,
   editPostQuery,
   verifyAccountQuery,
+  editPasswordQuery,
 };

@@ -4,8 +4,11 @@ import {
   signinController,
   signupController,
   verifyAccountController,
-  requestVerifyAccountController
+  requestVerifyAccountController,
+  requestPasswordResetController,
+  editPasswordController,
 } from '../controllers';
+import { checkResetPasswordAccess } from '../middlewares';
 
 const userRouter = express.Router();
 
@@ -14,5 +17,7 @@ userRouter.post('/signin', signinController);
 userRouter.delete('/logout', logoutController);
 userRouter.get('/verify', verifyAccountController);
 userRouter.post('/request-verify', requestVerifyAccountController);
+userRouter.post('/request-password-reset', requestPasswordResetController);
+userRouter.post('/edit-password', checkResetPasswordAccess, editPasswordController);
 
 export default userRouter;

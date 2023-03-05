@@ -4,6 +4,8 @@ import {
   logoutController,
   verifyAccountController,
   requestVerifyAccountController,
+  requestPasswordResetController,
+  editPasswordController,
 } from './users';
 import {
   createPostController,
@@ -26,4 +28,6 @@ export {
   editPostController,
   verifyAccountController,
   requestVerifyAccountController,
+  requestPasswordResetController,
+  editPasswordController,
 };

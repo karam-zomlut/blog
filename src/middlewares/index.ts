@@ -1,3 +1,4 @@
 import checkAuth from './checkAuth';
+import checkResetPasswordAccess from './checkResetPasswordAccess';
 
-export { checkAuth };
+export { checkAuth, checkResetPasswordAccess };
