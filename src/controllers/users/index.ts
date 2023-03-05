@@ -5,6 +5,7 @@ import verifyAccountController from './verifyAccountController';
 import requestVerifyAccountController from './requestVerifyAccountController';
 import requestPasswordResetController from './requestPasswordResetController';
 import editPasswordController from './editPasswordController';
+import updatePasswordController from './updatePasswordController';
 
 export {
   signupController,
@@ -14,4 +15,5 @@ export {
   requestVerifyAccountController,
   requestPasswordResetController,
   editPasswordController,
+  updatePasswordController,
 };

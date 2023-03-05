@@ -1,4 +1,15 @@
-import { signinSchema, signupSchema, resetPasswordSchema } from './users';
+import {
+  signinSchema,
+  signupSchema,
+  resetPasswordSchema,
+  updatePasswordSchema,
+} from './users';
 import { postSchema } from './posts';
 
-export { signinSchema, signupSchema, postSchema, resetPasswordSchema };
+export {
+  signinSchema,
+  signupSchema,
+  postSchema,
+  resetPasswordSchema,
+  updatePasswordSchema,
+};

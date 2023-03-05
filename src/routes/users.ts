@@ -7,8 +7,9 @@ import {
   requestVerifyAccountController,
   requestPasswordResetController,
   editPasswordController,
+  updatePasswordController,
 } from '../controllers';
-import { checkResetPasswordAccess } from '../middlewares';
+import { checkAuth, checkResetPasswordAccess } from '../middlewares';
 
 const userRouter = express.Router();
 
@@ -19,5 +20,6 @@ userRouter.get('/verify', verifyAccountController);
 userRouter.post('/request-verify', requestVerifyAccountController);
 userRouter.post('/request-password-reset', requestPasswordResetController);
 userRouter.post('/edit-password', checkResetPasswordAccess, editPasswordController);
+userRouter.post('/update-password', checkAuth, updatePasswordController);
 
 export default userRouter;

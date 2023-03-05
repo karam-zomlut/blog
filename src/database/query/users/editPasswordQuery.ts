@@ -6,6 +6,8 @@ type editPasswordQueryType = {
 };
 
 const editPasswordQuery = async ({ id, password}: editPasswordQueryType) => {
+  console.log('Accessing editPasswordQuery');
+  
   const sql = {
     text: `UPDATE users SET password = $1 WHERE id = $2`,
     values: [password, id],

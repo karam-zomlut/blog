@@ -20,7 +20,13 @@ const verifyAccountController = async (
 
     const { rows } = await verifyAccountQuery({ id });
 
-    res.status(200).json({
+
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+      })
+    .status(200).json({
       error: false,
       data: {
         message: 'Account verified successfully',

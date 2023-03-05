@@ -6,6 +6,7 @@ interface RequestWithToken extends Request {
     id: number;
     username: string;
     email: string;
+    verified: boolean;
   };
   resetPasswordAccsess?: boolean;
   query: {
