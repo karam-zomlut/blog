@@ -3,6 +3,7 @@ import {
   signupSchema,
   postSchema,
   resetPasswordSchema,
+  updatePasswordSchema,
 } from './validation';
 import { signToken, verifyToken } from './jwt';
 import CustomError from './customError';
@@ -26,4 +27,5 @@ export {
   verifyAccountEmail,
   generatePasswordResetEmail,
   resetPasswordSchema,
+  updatePasswordSchema,
 };
