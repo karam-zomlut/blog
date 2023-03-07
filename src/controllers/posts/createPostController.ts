@@ -3,20 +3,20 @@ import { generateSlug, postSchema } from '../../utils';
 import { createPostQuery } from '../../database';
 import uniqid from 'uniqid';
 
-// interface RequestWithBody extends Request {
-//   body: {
-//     title: string;
-//     content: string;
-//   };
-//   user?: {
-//     id: number;
-//     username: string;
-//     email: string;
-//   };
-// }
+
+type RequestWithBody = Request & {
+  body: {
+    title: string;
+    content: string;
+  };
+  user: {
+    id: number;
+  };
+};
+
 
 const createPostController = async (
-  req: any,
+  req: RequestWithBody,
   res: Response,
   next: NextFunction
 ) => {

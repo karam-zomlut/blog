@@ -17,9 +17,7 @@ const verifyAccountController = async (
   try {
     const { token } = req.query;
     const { id } = (await verifyToken(token)) as { id: number };
-
     const { rows } = await verifyAccountQuery({ id });
-
 
     res.cookie('token', token, {
         httpOnly: true,
