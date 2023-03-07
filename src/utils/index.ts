@@ -14,6 +14,7 @@ import {
   verifyAccountEmail,
   generatePasswordResetEmail,
 } from './email';
+import {upload} from './multer'
 export {
   signinSchema,
   signupSchema,
@@ -28,4 +29,5 @@ export {
   generatePasswordResetEmail,
   resetPasswordSchema,
   updatePasswordSchema,
+  upload,
 };
