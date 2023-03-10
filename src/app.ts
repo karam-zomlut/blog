@@ -2,6 +2,7 @@ import express, { Application } from 'express';
 import dotenv from 'dotenv';
 import router from './routes';
 import cookieParser from 'cookie-parser';
+import { checkAuth } from './middlewares';
 
 dotenv.config();
 const app: Application = express();
@@ -18,5 +19,6 @@ app.use([
 
 
 app.use('/api/v1', router);
+app.use(checkAuth, express.static('uploads'));
 
 export default app;
