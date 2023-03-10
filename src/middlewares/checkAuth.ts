@@ -5,9 +5,9 @@ import { CustomError, verifyToken } from '../utils';
 interface RequestWithToken extends Request {
   user?: {
     id: number;
-    username: string;
-    email: string;
-    verified: boolean;
+    username?: string;
+    email?: string;
+    verified?: boolean;
   };
 }
 

@@ -5,28 +5,35 @@ import uniqid from 'uniqid';
 
 
 type RequestWithBody = Request & {
-  body: {
-    title: string;
-    content: string;
-  };
-  user: {
+  body: any;
+  user?: {
     id: number;
+    username?: string;
+    email?: string;
+    verified?: boolean;
   };
 };
 
 
 const createPostController = async (
-  req: RequestWithBody,
+  req: any,
   res: Response,
   next: NextFunction
 ) => {
   try {
     const { title, content } = req.body;
+    if (!req.user) {
+      throw new Error('Unauthorized');
+    }
     const { id } = req.user;
 
     await postSchema.validateAsync({ title, content });
 
     const slug = generateSlug(title) + '-' + uniqid.process();
+
+    const imagePathLink = req.file.path.replace(/\\/g, '/');
+    console.log(imagePathLink);
+
 
     const { rows } = await createPostQuery({
       title,
@@ -39,7 +46,11 @@ const createPostController = async (
       error: false,
       data: {
         message: 'Post created successfully',
-        post: rows[0],
+        post: {
+          ...rows[0],
+          images: imagePathLink,
+          imageLink: imagePathLink.split('/').slice(1),
+        },
       },
     });
   } catch (err) {

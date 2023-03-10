@@ -6,10 +6,10 @@ declare global {
       resetPasswordAccsess?: boolean;
       user?: {
         id: number;
-        username: string;
-        email: string;
-        verified: boolean;
-      }
+        username?: string;
+        email?: string;
+        verified?: boolean;
+      };
     }
   }
 }
