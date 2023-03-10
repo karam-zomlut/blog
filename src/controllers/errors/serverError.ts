@@ -3,7 +3,7 @@ import { ValidationError } from 'joi';
 import { JsonWebTokenError } from 'jsonwebtoken';
 
 interface CustomError extends Error {
-  status?: number;
+  status: number;
   message: string;
   data?: any;
 }

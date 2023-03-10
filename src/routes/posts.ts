@@ -14,7 +14,7 @@ const postRouter = Router();
 postRouter.get('/', getAllPostsController);
 postRouter.get('/:id', getPostController);
 postRouter.use(checkAuth);
-postRouter.post('/create', upload.single('postImage'), createPostController);
+postRouter.post('/create', upload.single('image'), createPostController);
 postRouter.delete('/delete/:id', deletePostController);
 postRouter.put('/edit/:id', editPostController);
 

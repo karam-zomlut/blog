@@ -1,8 +1,7 @@
 import { Response, NextFunction } from 'express';
-import { generateSlug, postSchema } from '../../utils';
+import { CustomError, generateSlug, postSchema } from '../../utils';
 import { createPostQuery } from '../../database';
 import uniqid from 'uniqid';
-
 
 type RequestWithBody = Request & {
   body: any;
@@ -14,7 +13,6 @@ type RequestWithBody = Request & {
   };
 };
 
-
 const createPostController = async (
   req: any,
   res: Response,
@@ -23,7 +21,7 @@ const createPostController = async (
   try {
     const { title, content } = req.body;
     if (!req.user) {
-      throw new Error('Unauthorized');
+      throw new CustomError('Unauthorized', 401);
     }
     const { id } = req.user;
 
@@ -31,14 +29,13 @@ const createPostController = async (
 
     const slug = generateSlug(title) + '-' + uniqid.process();
 
-    const imagePathLink = req.file.path.replace(/\\/g, '/');
-    console.log(imagePathLink);
-
+    const imagePathLink = req.file.path.split('uploads\\').join('/');
 
     const { rows } = await createPostQuery({
       title,
       content,
       slug,
+      image: imagePathLink,
       userId: id,
     });
 
@@ -48,8 +45,6 @@ const createPostController = async (
         message: 'Post created successfully',
         post: {
           ...rows[0],
-          images: imagePathLink,
-          imageLink: imagePathLink.split('/').slice(1),
         },
       },
     });
