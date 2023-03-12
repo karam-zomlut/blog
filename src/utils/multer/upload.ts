@@ -1,11 +1,15 @@
 import multer from 'multer';
+import fs from 'fs';
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, './uploads/');
+    const fullPath = 'uploads/posts';
+    if (!fs.existsSync(fullPath)) {
+      fs.mkdirSync(fullPath, { recursive: true });
+    }
+    cb(null, fullPath);
   },
   filename: (req, file, cb) => {
-    // remove spaces from original file name
     cb(
       null,
       file.fieldname +
