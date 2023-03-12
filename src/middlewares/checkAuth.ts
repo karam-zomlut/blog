@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { JsonWebTokenError } from 'jsonwebtoken';
 import { CustomError, verifyToken } from '../utils';
 
 interface RequestWithToken extends Request {
@@ -24,7 +25,7 @@ const checkAuth = async (
     req.user = decodedToken;
     next();
   } catch (err: any) {
-    if (err.message === 'Unauthorized') {
+    if (err.message === 'Unauthorized' || err instanceof JsonWebTokenError) {
       res.status(401).json({
         error: true,
         data: {

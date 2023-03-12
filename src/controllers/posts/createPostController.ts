@@ -29,7 +29,7 @@ const createPostController = async (
 
     const slug = generateSlug(title) + '-' + uniqid.process();
 
-    const imagePathLink = req.file.path.split('uploads\\').join('/');
+    const imagePathLink = req.file.path;
 
     const { rows } = await createPostQuery({
       title,
