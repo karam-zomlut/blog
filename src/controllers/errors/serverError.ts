@@ -17,8 +17,6 @@ const serverError = (
   const status = err.status;
   const message = err.message;
   const data = err.data;
-  console.log(err);
-
   if (err instanceof ValidationError) {
     return res.status(400).json({
       error: true,
