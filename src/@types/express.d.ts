@@ -10,6 +10,7 @@ declare global {
         email?: string;
         verified?: boolean;
       };
+      file?: any;
     }
   }
 }
