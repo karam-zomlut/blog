@@ -11,9 +11,9 @@ import { upload } from '../utils';
 
 const postRouter = Router();
 
+postRouter.use(checkAuth);
 postRouter.get('/', getAllPostsController);
 postRouter.get('/:id', getPostController);
-postRouter.use(checkAuth);
 postRouter.post('/create', upload.single('image'), createPostController);
 postRouter.delete('/delete/:id', deletePostController);
 postRouter.put('/edit/:id', editPostController);

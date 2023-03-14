@@ -11,8 +11,8 @@ type RequestWithBody = Request & {
     email?: string;
     verified?: boolean;
   };
+  file?: any;
 };
-
 const createPostController = async (
   req: any,
   res: Response,
@@ -24,13 +24,12 @@ const createPostController = async (
       throw new CustomError('Unauthorized', 401);
     }
     const { id } = req.user;
-
     await postSchema.validateAsync({ title, content });
-
     const slug = generateSlug(title) + '-' + uniqid.process();
-
-    const imagePathLink = req.file.path;
-
+    let imagePathLink = null;
+    if (req.file) {
+      imagePathLink = req.file.path;
+    }
     const { rows } = await createPostQuery({
       title,
       content,
@@ -38,7 +37,6 @@ const createPostController = async (
       image: imagePathLink,
       userId: id,
     });
-
     res.status(201).json({
       error: false,
       data: {

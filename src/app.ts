@@ -4,6 +4,7 @@ import router from './routes';
 import cookieParser from 'cookie-parser';
 import { checkAuth } from './middlewares';
 import path from 'path';
+import { serverError } from './controllers';
 
 dotenv.config();
 const app: Application = express();
@@ -17,9 +18,12 @@ app.use([
   express.urlencoded({ extended: false }),
   cookieParser(),
 ]);
-
-
 app.use('/api/v1', router);
-app.use('/uploads',checkAuth, express.static(path.join(__dirname, '../uploads')));
+app.use(
+  '/uploads',
+  checkAuth,
+  express.static(path.join(__dirname, '../uploads'))
+);
+app.use(serverError);
 
 export default app;

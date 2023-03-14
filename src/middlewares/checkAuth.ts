@@ -25,15 +25,6 @@ const checkAuth = async (
     req.user = decodedToken;
     next();
   } catch (err: any) {
-    if (err.message === 'Unauthorized' || err instanceof JsonWebTokenError) {
-      res.status(401).json({
-        error: true,
-        data: {
-          message: 'Unauthorized',
-        },
-      });
-    }
-    
     next(err);
   }
 };
